@@ -124,5 +124,8 @@
       }
     }
   },
-  "defaultProject": "bankAppAngular"
+  "defaultProject": "bankAppAngular",
+  "cli": {
+    "analytics": "92acfe71-ff26-4316-8e4b-1eaad33f7eae"
+  }
 }

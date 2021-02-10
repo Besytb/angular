@@ -1,0 +1,33 @@
+<div class="background-image">
+    <div class="container">
+       <div class="main">
+           <div class="row">
+               <div class="col"></div>
+               <div class="col"><h2>Login SBI Bank</h2></div>
+               <div class="col"></div>
+
+
+           </div>
+    <form [formGroup]="loginForm"  (ngSubmit)="login()">
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">UserName <span class="require">*</span></label>
+          <input formControlName="username" name="username"  type="text" class="form-control" id="username" aria-describedby="emailHelp">
+         <label *ngIf="loginForm.get('username')?.touched && loginForm.get('username')?.errors?.required" for="" style="color: red;" id=uinvalid>username is required</label>
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Password</label>
+          <input formControlName="password" name="password"  type="password" class="form-control" id="password">
+          <div *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.errors">
+          <label *ngIf="loginForm.get('password')?.errors?.required" for=""  style="color: red;" id=pinvalid>password is required</label>
+          
+          <label *ngIf="loginForm.get('password')?.errors?.minlength" style="color: red;"  for=""   id=nvalid>password must be at least 5 characters</label>
+        </div>
+        </div>
+        
+        <button type="submit" class="btn btn-primary">Login</button>
+      </form>
+      </div>
+      </div>
+      </div>
+    
+
