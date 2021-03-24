@@ -33,22 +33,33 @@ export class HomeComponent implements OnInit {
   //   this.amount=event.target.value
   // }
 deposit(){
-  const username = this.homeForm.value.username
-    const password = this.homeForm.value.password
-    const amount = this.homeForm.value.amount
-  this.bankService.deposit(username,password,amount)
-  this.router.navigateByUrl("/history")
+  // const username = this.homeForm.value.username
+  //   const password = this.homeForm.value.password
+    const amount = parseInt(this.homeForm.value.amount)
+  this.bankService.deposit(amount)
+  .subscribe((data:any)=>{
+alert(data.message)
+  })
+  //this.router.navigateByUrl("/history")
   
 
 }
 withdraw(){
-  const username=this.homeForm.value.username
-    const password=this.homeForm.value.password
+  // const username=this.homeForm.value.username
+  //   const password=this.homeForm.value.password
     const amount=this.homeForm.value.amount
-  this.bankService.withdraw(username,password,amount)
-  this.router.navigateByUrl("/history")
+  this.bankService.withdraw(amount)
+  .subscribe((data:any)=>{
+    alert(data.message)
+
+  })
+  //this.router.navigateByUrl("/history")
   
   
+}
+logout(){
+  localStorage.removeItem("token")
+  this.router.navigateByUrl("/")
 }
   
 }

@@ -1,0 +1,36 @@
+<!-- <div class="background-image"> -->
+    <div class="container">
+       <div class="main">
+           
+           
+    <form [formGroup]="profileForm">
+        <div class="from-group">
+          <label for="">Username</label>
+          <input formControlName="username" name="username"  type="text" class="form-control" id="username" aria-describedby="emailHelp">
+         <label *ngIf="profileForm.get('username')?.touched && profileForm.get('username')?.errors?.required" for="" style="color: red;" id=uinvalid>username is required</label>
+        </div>
+        
+        <div class="from-group">
+          <label for="">Balance</label>
+          <input formControlName="balance" name="balance"  type="number" class="form-control" id="balance">
+          <div *ngIf="profileForm.get('balance')?.touched &&  profileForm.get('balance')?.errors">
+          <label *ngIf="profileForm.get('balance')?.errors?.required" for=""  style="color: red;" id=pinvalid>balance is required</label>
+          
+        </div>
+        </div>
+        
+        <div class="formGroup">
+            <label for="">AcNo</label>
+            <input formControlName="acno" name="acno"  type="number" class="form-control" id="acno" aria-describedby="emailHelp">
+           <label *ngIf="profileForm.get('acno')?.touched && profileForm.get('acno')?.errors?.required" for="" style="color: red;" id=uinvalid>AcNo  is required</label>
+          </div>
+        
+        <br>
+        <button type="button" (click)="updateProfile()" class="btn btn-primary">submit</button>
+      </form>
+      </div>
+    </div> 
+      <!-- </div> -->
+    
+
+

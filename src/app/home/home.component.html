@@ -1,9 +1,10 @@
 
 
-<div  class="bg">
+<body  class="bg">
 <h1>Welcome to SBI bank</h1>
 <br>
 <a routerLink="/history">History</a>
+<button  (click)="logout()">logout</button>
 <div class="container">
 
     <form [formGroup]="homeForm">
@@ -34,4 +35,6 @@
     </div>
 </form>
 </div>
-</div>
+
+    
+</body>

@@ -8,11 +8,11 @@ import { BankService } from '../services/bank.service';
 })
 export class HistoryComponent implements OnInit {
   history:{amount:number,typeOfTransaction:string}[]=[  ]
-    
-  
-
-  constructor(private bankService:BankService)  { 
-    this.history=bankService.getHistory()
+    constructor(private bankService:BankService)  { 
+    bankService.getHistory()
+    .subscribe((data:any)=>{
+      this.history = data
+    })
   }
 
   ngOnInit(): void {

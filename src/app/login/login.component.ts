@@ -9,6 +9,7 @@ import { BankService } from '../services/bank.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+  test="hello world"
   // username="";
   // password="";
   loginForm=this.fb.group({
@@ -41,20 +42,29 @@ export class LoginComponent implements OnInit {
     // alert(username)
     // alert(password)
     
-    const us=this.bankService.authenticateUser(username,password);
-    if(us==1){
-      alert("login succesfull")
-      this.router.navigateByUrl("/home")
+    this.bankService.authenticateUser(username,password)
+    .subscribe((data:any)=>{
+      alert(data.message)
+      localStorage.setItem("token",data.token)
+            // console.log(data)
+             this.router.navigateByUrl("/home")
+         },(err)=>{
+           alert(err.error.message)
+           
+         })
+  //   if(us==1){
+  //     alert("login succesfull")
+  //     this.router.navigateByUrl("/home")
       
 
-   }
+  //  }
 
-   else if(us==0){
-      alert("incorrect password")
-   }
-   else if(us==-1){
-      alert("no user exist with provided username")
-   }
+  //  else if(us==0){
+  //     alert("incorrect password")
+  //  }
+  //  else if(us==-1){
+  //     alert("no user exist with provided username")
+  //  }
   }
 } 
   }
